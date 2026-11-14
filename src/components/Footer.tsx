@@ -56,57 +56,80 @@ export default function Footer() {
             }}
           >
             {/* Website stack */}
-            <Stack sx={{ flexDirection: 'row', flexWrap: 'wrap', gap: 2 }}>
-              {websiteStackItems.map((item, index) => (
-                <Stack
-                  key={index}
-                  direction="row"
-                  sx={{
-                    height: 40,
-                    minWidth: 80,
-                    bgcolor: 'white',
-                    color: 'black',
-                    gap: 1,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    p: 1,
-                    borderRadius: 5,
-                  }}
-                >
-                  <Box
+            <Stack sx={{ flexDirection: 'row', gap: 2 }}>
+              <Typography
+                variant="h5"
+                sx={{ width: 110, flexShrink: 0, pt: 0.5 }}
+              >
+                Built with:
+              </Typography>
+              <Stack
+                sx={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: 2,
+                }}
+              >
+                {websiteStackItems.map((item, index) => (
+                  <Stack
+                    key={index}
+                    direction="row"
                     sx={{
-                      width: 12,
-                      height: 12,
-                      bgcolor: item.color,
-                      borderRadius: '50%',
+                      height: 40,
+                      minWidth: 80,
+                      bgcolor: 'white',
+                      color: 'black',
+                      gap: 1,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      p: 1,
+                      borderRadius: 5,
                     }}
-                  />
-                  <Box>{item.label}</Box>
-                </Stack>
-              ))}
+                  >
+                    <Box
+                      sx={{
+                        width: 12,
+                        height: 12,
+                        bgcolor: item.color,
+                        borderRadius: '50%',
+                      }}
+                    />
+                    <Box>{item.label}</Box>
+                  </Stack>
+                ))}
+              </Stack>
             </Stack>
             {/* Links */}
-            <Stack sx={{ flexDirection: 'row', flexWrap: 'wrap', gap: 2 }}>
-              {links.map(({ href, icon: Icon }, index) => (
-                <Fab
-                  key={index}
-                  size="large"
-                  href={href}
-                  sx={{
-                    color: 'primary.main',
-                    bgcolor: 'background.paper',
-                    border: '1px solid',
-                    borderColor: 'primary.main',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      bgcolor: 'primary.main',
-                      color: 'background.paper',
-                    },
-                  }}
-                >
-                  <Icon fontSize="large" />
-                </Fab>
-              ))}
+            <Stack sx={{ flexDirection: 'row', gap: 2 }}>
+              <Typography
+                variant="h5"
+                sx={{ width: 110, flexShrink: 0, pt: 1.75 }}
+              >
+                Links:
+              </Typography>
+              <Stack sx={{ flexDirection: 'row', flexWrap: 'wrap', gap: 2 }}>
+                {links.map(({ href, icon: Icon }, index) => (
+                  <Fab
+                    key={index}
+                    size="large"
+                    href={href}
+                    sx={{
+                      color: 'primary.main',
+                      bgcolor: 'background.paper',
+                      border: '1px solid',
+                      borderColor: 'primary.main',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        bgcolor: 'primary.main',
+                        color: 'background.paper',
+                      },
+                    }}
+                  >
+                    <Icon fontSize="large" />
+                  </Fab>
+                ))}
+              </Stack>
             </Stack>
           </Stack>
           {/* Copyright and large background name */}
