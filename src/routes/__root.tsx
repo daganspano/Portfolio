@@ -23,6 +23,26 @@ export const Route = createRootRoute({
         title: 'Portfolio | Dagan Spano',
       },
     ],
+    links: [
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossOrigin: 'anonymous',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Anton&display=swap',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap',
+      },
+    ],
   }),
   shellComponent: RootDocument,
 })
@@ -38,7 +58,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         />
         <HeadContent />
       </head>
-      <body>
+      <body
+        style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
+      >
         <ThemeProvider
           theme={{ [THEME_ID]: theme }}
           defaultMode="system"
@@ -48,6 +70,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <CssBaseline enableColorScheme />
           <Header />
           {children}
+          <div style={{ flex: 1 }}></div>
           <Footer />
           <TanStackDevtools
             config={{

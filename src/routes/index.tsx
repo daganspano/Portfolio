@@ -3,15 +3,25 @@ import Container from '@mui/material/Container'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import Card from '@mui/material/Card'
 import Button from '@mui/material/Button'
+import ImageCard from '#/components/ImageCard'
 
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {
-  const projects: { name: string; link: string }[] = [
-    { name: 'Hit Tracker - Personal', link: '/' },
-    { name: 'Wilson & Company Projects', link: '/wilsonProjects' },
+  const projects: {
+    name: string
+    company: string
+    link: string
+    image?: string
+  }[] = [
+    {
+      name: 'Hit Tracker',
+      company: 'Personal',
+      link: '/',
+      image: 'images/tempImg.png',
+    },
+    { name: 'GuestPass', company: 'Wilson & Company', link: '/wilsonProjects' },
   ]
 
   return (
@@ -34,7 +44,11 @@ function App() {
         {projects.map((project) => (
           <Grid size={{ xs: 12, md: 4 }}>
             <a href={project.link} style={{ textDecoration: 'none' }}>
-              <Card>{project.name}</Card>
+              <ImageCard
+                name={project.name}
+                company={project.company}
+                image={project.image}
+              />
             </a>
           </Grid>
         ))}
